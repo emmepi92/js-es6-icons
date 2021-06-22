@@ -1,0 +1,42 @@
+body {
+    background-color: #ddd;
+}
+
+
+.icon-container {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.icon-inner {
+    flex-basis: calc((100% / 5) - 30px);
+    max-width: calc((100% / 5) - 30px);
+    text-align: center;
+    background-color: white;
+    box-shadow: 2px 2px #ccc;
+    border-radius: 5px;
+    padding: 25px 0;
+    margin: 15px;
+    text-transform: uppercase;
+}
+
+div.fas {
+    font-size: 22px;
+}
+
+.icon-name {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.animal {
+    color: blue;
+}
+
+.vegetable {
+    color: orange;
+}
+
+.user {
+    color: purple;
+}
