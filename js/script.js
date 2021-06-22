@@ -7,6 +7,41 @@
 // Milestone 3
 // Creiamo una select con i tipi di icone e usiamola per filtrare le icone
 
+
+function stampaLaLista(nomeArray) {
+    const htmlIcon = document.querySelector('.icon-container');
+    htmlIcon.innerHTML ='';
+    nomeArray.forEach((icon) =>{
+
+        const {name, prefix, family, type} = icon;    
+        
+        htmlIcon.innerHTML +=
+        `
+        <div class="icon-inner">
+            <div class="${family} ${prefix}${name} ${type}"></div>
+            <div class="icon-name">${name}</div>
+        </div>
+        `
+    });
+}
+
+
+function nuovaListaFiltrata(nomeArray, filtro) {
+    const listFiltered = nomeArray.filter((icon) => {
+        
+        if (filtro === 'all') {
+            return true;
+        }
+
+        if (filtro === icon.type) {
+            return true;
+        }
+
+        return false;
+    });
+    return listFiltered
+}
+
 const icons = [
 	{
 		name: 'cat',
@@ -105,52 +140,15 @@ const icons = [
 		family: 'fas'
 	}
 ];
-
-function stampaLaLista(nomeArray) {
-    const htmlIcon = document.querySelector('.icon-container');
-    htmlIcon.innerHTML ='';
-    nomeArray.forEach((icon) =>{
-        
-    
-        const {name, prefix, family, type} = icon;    
-        
-        htmlIcon.innerHTML +=
-        `
-        <div class="icon-inner">
-            <div class="${family} ${prefix}${name} ${type}"></div>
-            <div class="icon-name">${name}</div>
-        </div>
-        `
-    });
-}
-
-
-
-
 const userChoice = document.querySelector('#type-choice')
-
-userChoice.addEventListener('change', (event) =>{
-
-    // usiamo la value delle select per impostarlo come 
-    //filtro della nuova 'stampa'
-    const listFiltered = icons.filter((icon) => {
-        
-        if (userChoice.value === 'all') {
-            return true;
-        }
-
-        if (userChoice.value === icon.type) {
-            return true;
-        }
-
-        return false;
-
-    });
-
-    stampaLaLista(listFiltered);
-});
 
 //-------------------------
 
 stampaLaLista(icons);
 
+userChoice.addEventListener('change', (event) =>{
+
+    const listaFiltrata = nuovaListaFiltrata (icons, userChoice.value);
+
+    stampaLaLista(listaFiltrata);
+});
