@@ -13,7 +13,7 @@ function stampaLaLista(nomeArray) {
     //dove stampare
     const htmlIcon = document.querySelector('.icon-container');
 
-    //reset
+    //reset per le nuove stampe dopo la selezione
     htmlIcon.innerHTML ='';
 
     // stampa dell'array
@@ -35,19 +35,25 @@ function stampaLaLista(nomeArray) {
  * 
  * @param {*} nomeArray array originale
  * @param {*} filtro filtro
- * @returns  array filtrato
+ * @returns  array filtrato, quello da stampare dopo
  */
 function nuovaListaFiltrata(nomeArray, filtro) {
+
+    //nuovaListaFiltrata deve ritornare un array filtrato
     return nomeArray.filter((icon) => {
         
+        //se il filtro è 'all', stampa tutti gli elementi nell'array da ritornare
         if (filtro === 'all') {
             return true;
         }
 
+        //altrimenti selezione in base al tipo: animal, veg o user
         if (filtro === icon.type) {
             return true;
         }
 
+        //se il filtro non è all, e se non è il filtro scelto, 
+        //non aggiungerlo al nuovo array
         return false;
     });
 }
@@ -155,6 +161,8 @@ const userChoice = document.querySelector('#type-choice')
 //-------------------------
 
 stampaLaLista(icons);
+// stampaLaLista(nuovaListaFiltrata (icons, 'all')); preferisco la prima
+
 
 userChoice.addEventListener('change', (event) =>{
     stampaLaLista(nuovaListaFiltrata (icons, userChoice.value));
