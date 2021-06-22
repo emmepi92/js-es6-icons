@@ -38,7 +38,7 @@ function stampaLaLista(nomeArray) {
  * @returns  array filtrato
  */
 function nuovaListaFiltrata(nomeArray, filtro) {
-    const listFiltered = nomeArray.filter((icon) => {
+    return nomeArray.filter((icon) => {
         
         if (filtro === 'all') {
             return true;
@@ -50,7 +50,6 @@ function nuovaListaFiltrata(nomeArray, filtro) {
 
         return false;
     });
-    return listFiltered
 }
 
 const icons = [
