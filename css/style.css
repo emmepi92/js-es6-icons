@@ -9,8 +9,8 @@ body {
 
 }
 .icon-inner {
-    flex-basis: calc((100% / 5) - 30px);
-    max-width: calc((100% / 5) - 30px);
+    flex-basis: calc((100% / 2) - 30px);
+    max-width: calc((100% / 2) - 30px);
     text-align: center;
     background-color: white;
     box-shadow: 2px 2px #ccc;
@@ -39,4 +39,29 @@ div.fas {
 
 .user {
     color: purple;
+}
+
+@media all and  (min-width: 576px) {
+    .icon-inner {
+        flex-basis: calc((100% / 3) - 30px);
+        max-width: calc((100% / 3) - 30px);
+    }
+}
+
+
+
+@media all and  (min-width: 768px) {
+    .icon-inner {
+        flex-basis: calc((100% / 4) - 30px);
+        max-width: calc((100% / 4) - 30px);
+    }
+}
+
+
+@media all and  (min-width: 992px)  {
+    .icon-inner {
+        flex-basis: calc((100% / 5) - 30px);
+        max-width: calc((100% / 5) - 30px);
+    }
+    
 }
