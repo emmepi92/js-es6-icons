@@ -158,8 +158,5 @@ const userChoice = document.querySelector('#type-choice')
 stampaLaLista(icons);
 
 userChoice.addEventListener('change', (event) =>{
-
-    const listaFiltrata = nuovaListaFiltrata (icons, userChoice.value);
-
-    stampaLaLista(listaFiltrata);
+    stampaLaLista(nuovaListaFiltrata (icons, userChoice.value));
 });
