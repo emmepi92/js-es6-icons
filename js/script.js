@@ -9,8 +9,14 @@
 
 
 function stampaLaLista(nomeArray) {
+
+    //dove stampare
     const htmlIcon = document.querySelector('.icon-container');
+
+    //reset
     htmlIcon.innerHTML ='';
+
+    // stampa dell'array
     nomeArray.forEach((icon) =>{
 
         const {name, prefix, family, type} = icon;    
@@ -25,7 +31,12 @@ function stampaLaLista(nomeArray) {
     });
 }
 
-
+/**
+ * 
+ * @param {*} nomeArray array originale
+ * @param {*} filtro filtro
+ * @returns  array filtrato
+ */
 function nuovaListaFiltrata(nomeArray, filtro) {
     const listFiltered = nomeArray.filter((icon) => {
         
